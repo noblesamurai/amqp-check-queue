@@ -1,7 +1,7 @@
 {
   "name": "amqp-check-queue",
   "description": "Check status of an AMQP queue.",
-  "version": "0.0.1",
+  "version": "1.0.0-init.0",
   "author": "Tim Allen <tim@noblesamurai.com>",
   "license": "BSD",
   "main": "index.js",
