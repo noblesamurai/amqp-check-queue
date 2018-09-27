@@ -3,20 +3,45 @@
 > Check status of an AMQP queue.
 
 ## Purpose
-- What problem does this module solve? At least a few sentences.
-PLEASE_FILL_IN_HERE
+Provides info on an AMQP queue including consume and message counts.
 
 ## Usage
 
 ```js
-// Several examples of usage.
-// Usually copying and pasting code from the tests and making the code standalone suffices.
-// PLEASE_FILL_IN_HERE
+const config = { /* amqp config */ };
+const amqplib = require('amqplib');
+const expect = require('chai').expect;
+const conn = amqp.connect(config);
+const checkQueue = require('amqp-check-queue');
+const result = await checkQueue(conn, 'test');
+expect(result).to.be.an('object');
+console.log(result);
+```
+Outputs:
+```js
+{
+  queue: 'test',
+  messageCount: 0,
+  consumerCount: 0
+}
 ```
 
 ## API
 
-PLEASE_FILL_IN_HERE
+<a name="amqp-check-queue
+Check queue status.module_"></a>
+
+## amqp-check-queue
+Check queue status. ⇒ <code>string</code> \| <code>object</code>
+cf https://www.squaremobius.net/amqp.node/channel_api.html#channel_checkQueue
+
+**Returns**: <code>string</code> \| <code>object</code> - 'not-found' or queue details.
+
+| Param | Type | Description |
+| --- | --- | --- |
+| conn | <code>\*</code> | connection from amqplib |
+| queue | <code>string</code> | name of queue |
+
 
 Note: To regenerate this section from the jsdoc run `npm run docs` and paste
 the output above.
